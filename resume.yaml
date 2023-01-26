@@ -1,0 +1,24 @@
+name: phi ARCHITECT
+contact:
+  email: illumiphi@gmail.com
+  linkedin: linkedin.com/in/phiarchitect
+  phone: 
+  location: Oregon Coast
+experience:
+  - company: Company 2
+    position: Software Engineer
+    team: Awesome
+    start_date: Jan 2015
+    location: Bangalore
+    summary:
+      - I did something awesome
+      - I automated some work
+  - company: Company 1
+    position: Software Engineer
+    team: Awesome
+    start_date: Jan 2005
+    to_date: Dec 2014
+    location: Bangalore
+    summary:
+      - I did something awesome
+      - I automated some work
