@@ -1,34 +1,28 @@
 <!doctype html>
 <!-- standard html stuff -->
 <style type="text/css" media="screen">
- \VAR{resume['style']}
+ {{resume['style']}}
 </style>
 
 <body>
-  \VAR{resume['name']}
+  {{resume['name']}}
   <br>
-  \VAR{resume['contact']['phone']} |
-  <a href="mailto:\VAR{resume['contact']['email']}">\VAR{resume['contact']['email']}</a> |
-  <a href="https://\VAR{resume['contact']['linkedin']}">\VAR{resume['contact']['linkedin']}</a>
+  {{resume['contact']['phone']}} |
+  <a href="mailto:{{resume['contact']['email']}}">{{resume['contact']['email']}}</a> |
+  <a href="https://{{resume['contact']['linkedin']}}">{{resume['contact']['linkedin']}}</a>
 
 
-{% for _ in sequence %}
-  
-{% endfor %}
+{% for exp in resume['experience'] %}
+  {{exp['position']}}
+  {{exp['start_date']}}
+  {{exp['to_date']}}
+  {{exp['company']}}
+  {{exp['location']}}
 
-
-  
-  \BLOCK{for exp in resume['experience']}
-  \VAR{exp['position']}
-  \VAR{exp['start_date']}
-  \VAR{exp['to_date']}
-  \VAR{exp['company']}
-  \VAR{exp['location']}
-
-  \BLOCK{for item in exp['summary']}
   <ul>
-      <li>\VAR{item}</li>
+  {% for item in exp['summary'] %}
+      <li>{{item}}</li>
+  {% endfor %}
   </ul>
-  \BLOCK{endfor}
-
+{% endfor %}
 </body>
