@@ -1,28 +1,37 @@
 <!doctype html>
-<!-- standard html stuff -->
-<style type="text/css" media="screen">
- {{resume['style']}}
-</style>
+
+<head>
+  <title>{{resume['name']}}</title>
+  <style type="text/css" media="screen">
+{{resume['style']}}
+  </style>
+</head>
 
 <body>
-  {{resume['name']}}
-  <br>
-  {{resume['contact']['phone']}} |
-  <a href="mailto:{{resume['contact']['email']}}">{{resume['contact']['email']}}</a> |
-  <a href="https://{{resume['contact']['linkedin']}}">{{resume['contact']['linkedin']}}</a>
-
-
+  <header>
+    <h1>{{resume['name']}}</h1>
+    <div id="contact">
+      {{resume['contact']['phone']}} |
+      <a href="mailto:{{resume['contact']['email']}}">{{resume['contact']['email']}}</a> |
+      <a href="https://{{resume['contact']['linkedin']}}">{{resume['contact']['linkedin']}}</a>
+    </div>
+  </header>
+  <main>
+    <section id="experience">
+      <h1>experience</h1>
 {% for exp in resume['experience'] %}
-  {{exp['position']}}
-  {{exp['start_date']}}
-  {{exp['to_date']}}
-  {{exp['company']}}
-  {{exp['location']}}
-
-  <ul>
-  {% for item in exp['summary'] %}
-      <li>{{item}}</li>
-  {% endfor %}
-  </ul>
+      <div>
+        <h1>{{exp['position']}}</h1>
+        <h2>{{exp['company']}}</h2>
+        <p>{{exp['start_date']}} - {{exp['to_date']}} </p>
+        <!-- <p>{{exp['location']}}</p> -->
+        <ul>
+{%   for item in exp['summary'] %}
+          <li>{{item}}</li>
+{%   endfor %}
+        </ul>
+      </div>
 {% endfor %}
+    </section>
+  </main>
 </body>
